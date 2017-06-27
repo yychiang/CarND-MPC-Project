@@ -98,7 +98,7 @@ int main() {
 
           double psi = j[1]["psi"];
           double v = j[1]["speed"];
-          cout << px << "," << py << ","<< ptsx[0]<< "," << ptsy[0] <<endl;
+          //cout << px << "," << py << ","<< ptsx[0]<< "," << ptsy[0] <<endl;
 
           double steer_value = j[1]["steering_angle"];
           double throttle_value = j[1]["throttle"];
@@ -134,6 +134,8 @@ int main() {
           auto coeffs = polyfit(ptsx2, ptsy2, 3);
           double cte = py-polyeval(coeffs, px);
           double epsi = psi -atan(coeffs[1] + 2*coeffs[2]*px + 3*coeffs[3]*px*px );
+
+          cout << cte <<endl;
 
 
           Eigen::VectorXd state(6);
